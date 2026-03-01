@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Level 2 - Medium Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #DFF6FF;
+            color: #333;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0077B6;
+        }
+
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #0077B6;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            color: #023E8A;
+        }
+
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background-color: #00B4D8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0077B6;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .pass {
+            color: green;
+        }
+
+        .fail {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+   
+    <h1>Cyber Security Quiz - Level 2 (Medium)</h1>
+
+    <div class="quiz-container">
+        <form id="quizForm">
+
+            <p>1. What is Two-Factor Authentication (2FA)?</p>
+            <input type="radio" name="q1" value="a"> Using two devices<br>
+            <input type="radio" name="q1" value="b"> Extra security step after password<br>
+            <input type="radio" name="q1" value="c"> Only fingerprint login<br><br>
+
+            <p>2. Which is an example of social engineering attack?</p>
+            <input type="radio" name="q2" value="a"> Sending phishing emails<br>
+            <input type="radio" name="q2" value="b"> Installing antivirus<br>
+            <input type="radio" name="q2" value="c"> Regular software update<br><br>
+
+            <p>3. What does HTTPS indicate?</p>
+            <input type="radio" name="q3" value="a"> Secured website<br>
+            <input type="radio" name="q3" value="b"> Slow internet<br>
+            <input type="radio" name="q3" value="c"> Gaming site<br><br>
+
+            <p>4. Which of these is a strong password?</p>
+            <input type="radio" name="q4" value="a"> abc123<br>
+            <input type="radio" name="q4" value="b"> Cyber@2025!<br>
+            <input type="radio" name="q4" value="c"> yourname2022<br><br>
+
+            <p>5. What is a firewall used for?</p>
+            <input type="radio" name="q5" value="a"> To block unauthorized access<br>
+            <input type="radio" name="q5" value="b"> To speed up your PC<br>
+            <input type="radio" name="q5" value="c"> To share files<br><br>
+
+            <p>6. Shoulder surfing means:</p>
+            <input type="radio" name="q6" value="a"> Watching someone's screen to steal information<br>
+            <input type="radio" name="q6" value="b"> Playing games together<br>
+            <input type="radio" name="q6" value="c"> Surfing internet<br><br>
+
+            <p>7. Which of these can be malware?</p>
+            <input type="radio" name="q7" value="a"> Virus<br>
+            <input type="radio" name="q7" value="b"> Worm<br>
+            <input type="radio" name="q7" value="c"> Both of the above<br><br>
+
+            <p>8. A secure password should have:</p>
+            <input type="radio" name="q8" value="a"> Only letters<br>
+            <input type="radio" name="q8" value="b"> Combination of letters, numbers, symbols<br>
+            <input type="radio" name="q8" value="c"> Only numbers<br><br>
+
+            <p>9. Public Wi-Fi without VPN is:</p>
+            <input type="radio" name="q9" value="a"> Safe<br>
+            <input type="radio" name="q9" value="b"> Risky<br>
+            <input type="radio" name="q9" value="c"> Only for fun<br><br>
+
+            <p>10. What is identity theft?</p>
+            <input type="radio" name="q10" value="a"> Using your personal data illegally<br>
+            <input type="radio" name="q10" value="b"> Buying new phone<br>
+            <input type="radio" name="q10" value="c"> Watching online videos<br><br>
+
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+<script>
+function submitQuiz() {
+    const answers = {
+        q1: 'b', q2: 'a', q3: 'a', q4: 'b', q5: 'a',
+        q6: 'a', q7: 'c', q8: 'b', q9: 'b', q10: 'a'
+    };
+
+    let score = 0;
+    for (let key in answers) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === answers[key]) {
+            score++;
+        }
+    }
+
+    const resultDiv = document.getElementById("result");
+    
+    if (score >= 6) {
+        resultDiv.innerHTML = `<p class="pass">You scored ${score} out of 10. Great job! You passed Level 2.</p>`;
+        setTimeout(() => {
+            alert("Moving to Level 3...");
+            window.location.href = "level3.html";
+        }, 2000);
+    } else {
+        resultDiv.innerHTML = `<p class="fail">You scored ${score} out of 10. Try again to pass Level 2.</p>`;
+    }
+}
+</script>
+
+</body>
+</html>
+level2.html
+Displaying quiz.css.

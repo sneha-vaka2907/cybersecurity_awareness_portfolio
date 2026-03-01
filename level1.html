@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Level 1 - Easy Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #DFF6FF;
+            color: #333;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0077B6;
+        }
+
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #0077B6;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            color: #023E8A;
+        }
+
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background-color: #00B4D8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0077B6;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .pass {
+            color: green;
+        }
+
+        .fail {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Cyber Security Quiz - Level 1 (Easy)</h1>
+
+    <div class="quiz-container">
+        <form id="quizForm">
+
+            <p>1. What does VPN stand for?</p>
+            <input type="radio" name="q1" value="a"> Virtual Private Network<br>
+            <input type="radio" name="q1" value="b"> Very Private Node<br>
+            <input type="radio" name="q1" value="c"> Virtual Public News<br><br>
+
+            <p>2. Which is a strong password example?</p>
+            <input type="radio" name="q2" value="a"> mypassword<br>
+            <input type="radio" name="q2" value="b"> P@ssw0rd#2024<br>
+            <input type="radio" name="q2" value="c"> username123<br><br>
+
+            <p>3. Phishing means:</p>
+            <input type="radio" name="q3" value="a"> Sending fake messages to steal info<br>
+            <input type="radio" name="q3" value="b"> Buying fish online<br>
+            <input type="radio" name="q3" value="c"> Speed up internet<br><br>
+
+            <p>4. How to secure social media?</p>
+            <input type="radio" name="q4" value="a"> Weak password<br>
+            <input type="radio" name="q4" value="b"> 2-Factor Authentication<br>
+            <input type="radio" name="q4" value="c"> Share passwords<br><br>
+
+            <p>5. What is malware?</p>
+            <input type="radio" name="q5" value="a"> Harmful software<br>
+            <input type="radio" name="q5" value="b"> Internet booster<br>
+            <input type="radio" name="q5" value="c"> Antivirus app<br><br>
+
+            <p>6. Suspicious emails should be:</p>
+            <input type="radio" name="q6" value="a"> Opened quickly<br>
+            <input type="radio" name="q6" value="b"> Reported or deleted<br>
+            <input type="radio" name="q6" value="c"> Forwarded to friends<br><br>
+
+            <p>7. Which is a cybercrime?</p>
+            <input type="radio" name="q7" value="a"> Hacking accounts<br>
+            <input type="radio" name="q7" value="b"> Posting photos<br>
+            <input type="radio" name="q7" value="c"> Watching videos<br><br>
+
+            <p>8. Public Wi-Fi is:</p>
+            <input type="radio" name="q8" value="a"> 100% secure always<br>
+            <input type="radio" name="q8" value="b"> Risky for personal data<br>
+            <input type="radio" name="q8" value="c"> Only for calls<br><br>
+
+            <p>9. Antivirus helps:</p>
+            <input type="radio" name="q9" value="a"> Increase internet speed<br>
+            <input type="radio" name="q9" value="b"> Protect devices from threats<br>
+            <input type="radio" name="q9" value="c"> Increase memory<br><br>
+
+            <p>10. What is ransomware?</p>
+            <input type="radio" name="q10" value="a"> Free game<br>
+            <input type="radio" name="q10" value="b"> Locks files and demands money<br>
+            <input type="radio" name="q10" value="c"> Social media tool<br><br>
+
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+<script>
+function submitQuiz() {
+    const answers = {
+        q1: 'a', q2: 'b', q3: 'a', q4: 'b', q5: 'a',
+        q6: 'b', q7: 'a', q8: 'b', q9: 'b', q10: 'b'
+    };
+
+    let score = 0;
+    for (let key in answers) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === answers[key]) {
+            score++;
+        }
+    }
+
+    const resultDiv = document.getElementById("result");
+    
+    if (score >= 6) {
+        resultDiv.innerHTML = `<p class="pass">You scored ${score} out of 10. Great job! You passed Level 1.</p>`;
+        setTimeout(() => {
+            alert("Moving to Level 2...");
+            window.location.href = "level2.html";
+        }, 2000);
+    } else {
+        resultDiv.innerHTML = `<p class="fail">You scored ${score} out of 10. Try again to pass Level 1.</p>`;
+    }
+}
+</script>
+
+</body>
+</html>
+l

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Level 5 - Final Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #DFF6FF;
+            color: #333;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0077B6;
+        }
+
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #0077B6;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            color: #023E8A;
+        }
+
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background-color: #00B4D8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0077B6;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .pass {
+            color: green;
+        }
+
+        .fail {
+            color: red;
+        }
+
+        .conclusion {
+            background-color: #CAF0F8;
+            border: 2px solid #0077B6;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Cyber Security Quiz - Level 5 (Final)</h1>
+
+    <div class="quiz-container">
+        <form id="quizForm">
+
+            <p>1. What is ethical hacking?</p>
+            <input type="radio" name="q1" value="a"> Hacking without permission<br>
+            <input type="radio" name="q1" value="b"> Authorized hacking to find vulnerabilities<br>
+            <input type="radio" name="q1" value="c"> Stealing personal data<br><br>
+
+            <p>2. Which is an advanced persistent threat?</p>
+            <input type="radio" name="q2" value="a"> Short-term cyber attack<br>
+            <input type="radio" name="q2" value="b"> Long-term, hidden cyber attack<br>
+            <input type="radio" name="q2" value="c"> Social media password reset<br><br>
+
+            <p>3. What is the purpose of penetration testing?</p>
+            <input type="radio" name="q3" value="a"> Break system for fun<br>
+            <input type="radio" name="q3" value="b"> Identify system weaknesses<br>
+            <input type="radio" name="q3" value="c"> Install games<br><br>
+
+            <p>4. What does malware include?</p>
+            <input type="radio" name="q4" value="a"> Viruses, Worms, Trojans<br>
+            <input type="radio" name="q4" value="b"> Antivirus software<br>
+            <input type="radio" name="q4" value="c"> Password managers<br><br>
+
+            <p>5. Which is a common sign of phishing?</p>
+            <input type="radio" name="q5" value="a"> Official emails only<br>
+            <input type="radio" name="q5" value="b"> Suspicious links and urgent messages<br>
+            <input type="radio" name="q5" value="c"> Secure websites only<br><br>
+
+            <p>6. Cyber hygiene means:</p>
+            <input type="radio" name="q6" value="a"> Regular online safety practices<br>
+            <input type="radio" name="q6" value="b"> Physical health checkups<br>
+            <input type="radio" name="q6" value="c"> Taking PC to service center<br><br>
+
+            <p>7. Ransomware demands:</p>
+            <input type="radio" name="q7" value="a"> Free updates<br>
+            <input type="radio" name="q7" value="b"> Money to unlock files<br>
+            <input type="radio" name="q7" value="c"> Internet booster<br><br>
+
+            <p>8. Which of these protects your accounts?</p>
+            <input type="radio" name="q8" value="a"> Strong, unique passwords<br>
+            <input type="radio" name="q8" value="b"> Sharing passwords<br>
+            <input type="radio" name="q8" value="c"> Using "123456"<br><br>
+
+            <p>9. IoT devices security requires:</p>
+            <input type="radio" name="q9" value="a"> Default passwords<br>
+            <input type="radio" name="q9" value="b"> Changing default settings, updates<br>
+            <input type="radio" name="q9" value="c"> Ignoring updates<br><br>
+
+            <p>10. Cyber awareness helps:</p>
+            <input type="radio" name="q10" value="a"> Identify and avoid online threats<br>
+            <input type="radio" name="q10" value="b"> Increase internet bills<br>
+            <input type="radio" name="q10" value="c"> Share personal info everywhere<br><br>
+
+            <button type="button" onclick="submitQuiz()">Submit Final Quiz</button>
+        </form>
+
+        <div id="result"></div>
+        <div id="conclusion"></div>
+    </div>
+
+<script>
+function submitQuiz() {
+    const answers = {
+        q1: 'b', q2: 'b', q3: 'b', q4: 'a', q5: 'b',
+        q6: 'a', q7: 'b', q8: 'a', q9: 'b', q10: 'a'
+    };
+
+    let score = 0;
+    for (let key in answers) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === answers[key]) {
+            score++;
+        }
+    }
+
+    const resultDiv = document.getElementById("result");
+    const conclusionDiv = document.getElementById("conclusion");
+
+    if (score >= 6) {
+        resultDiv.innerHTML = `<p class="pass">You scored ${score} out of 10. Congratulations! You completed all levels.</p>`;
+        
+        conclusionDiv.innerHTML = `
+            <div class="conclusion">
+                <h2>🎉 Well Done! 🎉</h2>
+                <p>You have successfully completed all 5 levels of the Cyber Security Awareness Quiz.</p>
+                <p>Stay safe online, follow cyber hygiene practices, and spread awareness!</p>
+                <p><strong>Next Step:</strong> Explore our Awareness and About pages to learn more.</p>
+                <br>
+                <a href="index.html">🏠 Go to Home</a>
+            </div>
+        `;
+    } else {
+        resultDiv.innerHTML = `<p class="fail">You scored ${score} out of 10. Try again to complete the Final Level.</p>`;
+    }
+}
+</script>
+
+</body>
+</html>
+level5.html
+Displaying level3.html.
